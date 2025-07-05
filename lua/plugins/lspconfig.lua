@@ -18,7 +18,7 @@ return {
         config = function()
             local lspconfig = require("lspconfig")
             lspconfig.lua_ls.setup({})
-            lspconfig.pylsp.setup({})
+            -- lspconfig.pylsp.setup({})
             vim.keymap.set('n', '<C-k>', vim.lsp.buf.hover, {})
         end
     }

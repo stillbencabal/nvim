@@ -38,6 +38,8 @@ function CompileAndRun()
         local dir = vim.fn.expand("%:p:h")  
         local classname = vim.fn.expand("%:t:r")  
         cmd = string.format("javac '%s' && java -cp '%s' %s", filename, dir, classname)
+    elseif filetype == "javascript" then
+        cmd = string.format("node '%s'", filename)
     else
         print("Filetype '" .. filetype .. "' not supported")
         return
