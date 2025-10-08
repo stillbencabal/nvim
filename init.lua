@@ -18,7 +18,7 @@ require("vim-options")
 require("lazy").setup("plugins")
 
 -- C++ LSP
-require"lspconfig".clangd.setup{}
+-- require"lspconfig".clangd.setup{}
 
 function CompileAndRun()
     vim.cmd("silent write")
