@@ -18,6 +18,7 @@ require("vim-options")
 require("lazy").setup("plugins")
 
 -- C++ LSP
+vim.lsp.config("clangd.setup",{})
 -- require"lspconfig".clangd.setup{}
 
 function CompileAndRun()
