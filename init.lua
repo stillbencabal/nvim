@@ -17,9 +17,8 @@ vim.opt.rtp:prepend(lazypath)
 require("vim-options")
 require("lazy").setup("plugins")
 
--- C++ LSP
-vim.lsp.config("clangd.setup",{})
--- require"lspconfig".clangd.setup{}
+-- NOTE: C++ LSP (clangd) is now handled automatically in lspconfig.lua
+-- You do not need a manual setup call here anymore.
 
 function CompileAndRun()
     vim.cmd("silent write")
