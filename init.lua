@@ -24,19 +24,21 @@ function CompileAndRun()
     vim.cmd("silent write")
 
     local filetype = vim.bo.filetype
-    local filename = vim.fn.expand("%:p")  
-    local rootname = vim.fn.expand("%:r")   
+    local filename = vim.fn.expand("%:p")
+    -- We no longer need 'rootname' for C/C++ since we aren't using the file's name for the binary
 
     local cmd
     if filetype == "c" then
-        cmd = string.format("gcc '%s' -o '%s' && '%s'", filename, rootname, rootname)
+        -- Compiles to 'output' and runs './output'
+        cmd = string.format("gcc '%s' -o output && ./output", filename)
     elseif filetype == "cpp" then
-        cmd = string.format("g++ '%s' -o '%s' && './%s'", filename, rootname, rootname)
+        -- Compiles to 'output' and runs './output'
+        cmd = string.format("g++ '%s' -o output && ./output", filename)
     elseif filetype == "python" then
         cmd = string.format("python '%s'", filename)
     elseif filetype == "java" then
-        local dir = vim.fn.expand("%:p:h")  
-        local classname = vim.fn.expand("%:t:r")  
+        local dir = vim.fn.expand("%:p:h")
+        local classname = vim.fn.expand("%:t:r")
         cmd = string.format("javac '%s' && java -cp '%s' %s", filename, dir, classname)
     elseif filetype == "javascript" then
         cmd = string.format("node '%s'", filename)
@@ -46,7 +48,7 @@ function CompileAndRun()
     end
 
     vim.cmd("split | terminal " .. cmd)
-    vim.cmd("startinsert")  
+    vim.cmd("startinsert")
 end
 
 vim.api.nvim_set_keymap(
