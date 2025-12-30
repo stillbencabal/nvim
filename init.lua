@@ -40,6 +40,9 @@ function CompileAndRun()
         local dir = vim.fn.expand("%:p:h")
         local classname = vim.fn.expand("%:t:r")
         cmd = string.format("javac '%s' && java -cp '%s' %s", filename, dir, classname)
+    elseif filetype == "kotlin" then
+        -- Compiles to 'output.jar' and runs it
+        cmd = string.format("kotlinc '%s' -include-runtime -d output.jar && java -jar output.jar", filename)
     elseif filetype == "javascript" then
         cmd = string.format("node '%s'", filename)
     else
