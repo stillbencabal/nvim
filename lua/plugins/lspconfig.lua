@@ -19,6 +19,7 @@ return {
             vim.lsp.config("lua_ls.setup",{})
             vim.lsp.config("pylsp.setup",{})
             vim.keymap.set('n', '<C-k>', vim.lsp.buf.hover, {})
+            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
         end
     }
 }
