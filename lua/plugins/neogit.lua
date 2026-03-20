@@ -9,7 +9,7 @@ return {
         vim.keymap.set(
             'n',
             '<C-g>',
-            function() neogit.open({kind = "vsplit" }) end,
+            function() neogit.open() end,
             { desc = "Open Neogit UI in another window" })
     end
 }
