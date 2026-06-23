@@ -9,7 +9,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "pylsp", "kotlin_lsp", "clangd", "ts_ls", "html", "cssls"}
+                ensure_installed = { "lua_ls", "pyright", "kotlin_lsp", "clangd", "ts_ls", "html", "cssls"}
             })
         end
     },
@@ -22,6 +22,7 @@ return {
             vim.lsp.config("ts_ls", {})
             vim.lsp.config("html", {})
             vim.lsp.config("cssls", {})
+            vim.lsp.config("clangd", {})
             vim.diagnostic.config({virtual_text = true})
             vim.keymap.set('n', '<C-k>', vim.lsp.buf.hover, {})
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
