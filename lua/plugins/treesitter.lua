@@ -6,7 +6,7 @@ return {
         config.setup({
             ensure_installed = {"lua", "python", "cpp", "kotlin", "java", "javascript", "typescript", "tsx", "html", "css"},
             highlight = {enable = true},
-            indent = {enable = true},
+            indent = {enable = true, disable = {"c"}},
         })
     end
 }
